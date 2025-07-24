@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Submit a Complaint</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>{{ form.name.label }} {{ form.name() }}</p>
+    <p>{{ form.message.label }} {{ form.message() }}</p>
+    <p>{{ form.submit() }}</p>
+</form>
+
+<h3>All Complaints</h3>
+<ul>
+    {% for complaint in complaints %}
+        <li><strong>{{ complaint.name }}</strong>: {{ complaint.message }} ({{ 'Resolved' if complaint.resolved else 'Pending' }})</li>
+    {% endfor %}
+</ul>
+{% endblock %}
