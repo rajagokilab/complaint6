@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{ 'Edit' if form.name.data else 'Add' }} Contact</title></head>
+<body>
+  <h2>{{ 'Edit' if form.name.data else 'Add' }} Contact</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }}<br>
+    {{ form.phone.label }} {{ form.phone() }}<br>
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ form.address.label }} {{ form.address() }}<br>
+    {{ form.submit() }}
+  </form>
+</body>
+</html>
